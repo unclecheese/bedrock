@@ -39,7 +39,7 @@ LivingThings:
       Mosquito:
         Annoying: true
       Butterfly:
-        Balls: ass
+        Annoying: false
         
   Plants:
     Aquatic:

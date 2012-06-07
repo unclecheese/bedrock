@@ -6,7 +6,7 @@
  * @author Aaron Carlino <unclecheese@leftandmain.com>
  * @package Bedrock
  */
-foreach(array("BedrockNode", "BedrockYML", "Spyc", "BedrockTemplate") as $class) {
+foreach(array("BedrockNode", "BedrockYAML", "Spyc", "BedrockTemplate") as $class) {
 	if(!class_exists($class)) {	
 		require_once($class.".php");
 	}	

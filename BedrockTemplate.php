@@ -80,7 +80,7 @@ class BedrockTemplate {
     $template = str_replace("{{ T }}", "\t", $template);
     $template = preg_replace('/<# ?else ?#>/','<?php else: ?>', $template);
     $template = preg_replace('/<# ?\/if ?#>/','<?php endif ?>', $template);
-    $template = preg_replace('/<#= :Key #>/', '<?php echo $context->getKey() ?>', $template);
+    $template = preg_replace('/<#= :Name #>/', '<?php echo $context->getKey() ?>', $template);
     $template = preg_replace('/<#= :Val #>/', '<?php echo $context ?>', $template);
     $template = preg_replace('/<#= :Pos #>/','<?php echo $pos ?>', $template);
     $template = preg_replace('/\<#= ([A-Za-z0-9_]+)\.([A-Za-z0-9]+) #>/','<?php echo $context->get$1()->get$2() ?>', $template);
@@ -93,7 +93,7 @@ class BedrockTemplate {
     $template = preg_replace('/<# ?with ([A-Za-z0-9_]+) ?#>/', '<?php array_push($contexts, $context); ?><?php $context = $context->get$1(); ?>', $template);
     $template = preg_replace('/<# ?with ([A-Za-z0-9_]+)\.([A-Za-z0-9_]+) ?#>/', '<?php array_push($contexts, $context); ?><?php $context = $context->get$1()->get$2(); ?>', $template);
     $template = preg_replace('/<# ?\/with ?#>/', '<?php $context = array_pop($contexts); ?>', $template);
-    $template = preg_replace('/<# ?each :This ?#>/', '<?php array_push($contexts, $context); ?><?php $pos=0;$first=false;$last=false; $c = $context;$max=sizeof($c);foreach ($c as $key => $context): $pos++;$first=($pos==1);$last=($pos==$max);?>', $template);
+    $template = preg_replace('/<# ?each :Children ?#>/', '<?php array_push($contexts, $context); ?><?php $pos=0;$first=false;$last=false; $c = $context;$max=sizeof($c);foreach ($c as $key => $context): $pos++;$first=($pos==1);$last=($pos==$max);?>', $template);
     $template = preg_replace('/<# ?each ([A-Za-z0-9_]+) ?#>/', '<?php array_push($contexts, $context); ?><?php $pos=0;$first=false;$last=false;$c=$context->get$1();$max=sizeof($c);foreach ($c as $key => $context): $pos++;$first=($pos==1);$last=($pos==$max);?>', $template);
     $template = preg_replace('/<# ?each ([A-Za-z0-9_]+)\.([A-Za-z0-9_]+) ?#>/', '<?php array_push($contexts, $context); ?><?php $pos=0;$first=false;$last=false;$c=$context->get$1()->get$2();$max=sizeof($c);foreach ($c as $key => $context): $pos++;$first=($pos==1);$last=($pos==$max); ?>', $template);
     $template = preg_replace('/<# ?\/each ?#>/', '<?php endforeach ?><?php $context = array_pop($contexts); ?>', $template);

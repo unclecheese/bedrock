@@ -23,7 +23,7 @@ class BedrockInsect extends BedrockNode {
 	}
 }
 
-$yml = new BedrockYML("sample.yml");
+$yml = new BedrockYAML("sample.yml");
 echo "<h2>Testing YAML load</h2>";
 echo ($yml->size() > 0) ? "pass" : "fail";
 
