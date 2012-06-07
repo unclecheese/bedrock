@@ -62,10 +62,16 @@ LivingThings:
   <?php
   echo $yml->getLivingThings()->getAnimals()->getMammals()->getAquatic()->getWhales()->getTopSpeed();
   // "25mph"
-  
-  echo $yml->getLivingThings()->getPlants()->getAquatic()->first();
+```
+### We can also travere using Dot.Separated.Syntax
+```php
+  <?php
+  echo $yml->get('LivingThings.Plants')->getAquatic()->first();
   // "Seaweed"
-  
+```
+### Iterating is no problem.
+```php
+  <?php
   foreach($yml->getLivingThings()->getAnimals()->getInsects() as $insect) {
     if(!$insect->getAnnoying()) {
       echo $insect->getKey();
