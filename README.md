@@ -6,7 +6,7 @@
 
 ### We'll use the following YAML data as an example:
 
-```html
+```
 LivingThings:
   Animals:
     Mammals:
@@ -52,12 +52,14 @@ LivingThings:
 ```
 ### First, we include the Bedrock boostrap script, and instantiate a new BedrockYML object.
 ```php
+  <?php
   require_once("bedrock.php");
   $yml = new BedrockYML("/path/to/yaml.yml");
 ```
 
 ### Now we can travese the yaml as an object
 ```php
+  <?php
   echo $yml->getLivingThings()->getAnimals()->getMammals()->getAquatic()->getWhales()->getTopSpeed();
   // "25mph"
   
@@ -80,6 +82,7 @@ LivingThings:
 Just create a class with the name of the node prefaced by "Bedrock"
 
 ```php
+<?php
 class BedrockInsects extends BedrockNode {
   protected $iteratorClass = "BedrockInsects_Iterator";
 }
@@ -107,7 +110,7 @@ foreach($yml->getLivingThings()->getAnimals()->getInsects() as $insect) {
 The BedrockTemplate class allows you to create a template for rendering the data into HTML or any other text format.
 
 ### Example template
-```html
+```
 <# with LivingThings #>
 <p>Aquatic mammals are very interesting.
   <# with Animals.Mammals #>
@@ -146,6 +149,7 @@ The BedrockTemplate class allows you to create a template for rendering the data
 ```
 ### Processing the template
 ```php
+  <?php
   $yml = new BedrockYML("/path/to/my.yml");
   $template = new BedrockTemplate("/path/to/template.bedrock");
   $template->bind($yml);
@@ -167,5 +171,6 @@ Other animals deserve to die because they're annoying. If you see these, squash 
 ### Debugging
 This will show you the PHP code, with line numbers, that is being eval'ed if you get a parse error.
 ```php
+  <?php
   echo $template->debug();
 ```
