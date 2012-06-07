@@ -1,4 +1,4 @@
-# Bedrock YML
+# Bedrock YAML
 
 ## A PHP utility for traversing and rendering YAML data
 
@@ -54,7 +54,7 @@ LivingThings:
 ```php
   <?php
   require_once("bedrock.php");
-  $yml = new BedrockYML("/path/to/yaml.yml");
+  $yml = new BedrockYAML("/path/to/yaml.yml");
 ```
 
 ### Now we can travese the yaml as an object
@@ -150,7 +150,7 @@ The BedrockTemplate class allows you to create a template for rendering the data
 ### Processing the template
 ```php
   <?php
-  $yml = new BedrockYML("/path/to/my.yml");
+  $yml = new BedrockYAML("/path/to/my.yml");
   $template = new BedrockTemplate("/path/to/template.bedrock");
   $template->bind($yml);
   echo $template->render();
