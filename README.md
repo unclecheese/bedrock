@@ -57,13 +57,13 @@ LivingThings:
   $yml = new BedrockYAML("/path/to/yaml.yml");
 ```
 
-### Now we can travese the yaml as an object
+### Now we can traverse the yaml as an object
 ```php
   <?php
   echo $yml->getLivingThings()->getAnimals()->getMammals()->getAquatic()->getWhales()->getTopSpeed();
   // "25mph"
 ```
-### We can also travere using Dot.Separated.Syntax
+### We can also traverse using Dot.Separated.Syntax
 ```php
   <?php
   echo $yml->get('LivingThings.Plants')->getAquatic()->first();
