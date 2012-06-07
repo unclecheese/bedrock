@@ -157,6 +157,7 @@ The BedrockTemplate class allows you to create a template for rendering the data
 ```
 
 ### Result
+```
 Aquatic mammals are very interesting. Whales are rare because they are endangered and can reach a top speed of 25mph. Dolphin are all over the ocean and can reach a top speed of 40mph.
 
 Some animals are friendly with humans. They include:
@@ -167,7 +168,7 @@ Other animals deserve to die because they're annoying. If you see these, squash 
 
 1. Fly
 2. Mosquito
-
+```
 ### Debugging
 This will show you the PHP code, with line numbers, that is being eval'ed if you get a parse error.
 ```php
